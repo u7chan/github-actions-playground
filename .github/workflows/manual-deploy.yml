@@ -1,11 +1,16 @@
 name: manual-deploy
 
 on: 
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      name:
+        description: branch or tag
+        type: string
+        required: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: print log
-        run: echo "DONE!"
+        run: echo "target:${{ github.event.inputs.name }}"
