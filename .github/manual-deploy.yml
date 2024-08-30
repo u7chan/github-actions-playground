@@ -1,0 +1,11 @@
+name: manual-deploy
+
+on: 
+  workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print log
+        run: echo "DONE!"
