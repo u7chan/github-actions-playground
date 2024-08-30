@@ -3,8 +3,8 @@ name: manual-deploy
 on: 
   workflow_dispatch:
     inputs:
-      name:
-        description: branch or tag
+      comment:
+        description: comment
         type: string
         required: true
 
@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print log
-        run: echo "target:${{ github.event.inputs.name }}"
+        run: echo "branch=${GITHUB_REF#refs/heads/}, comment=${{ github.event.inputs.comment }}"
