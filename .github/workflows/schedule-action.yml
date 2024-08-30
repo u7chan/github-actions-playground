@@ -2,7 +2,7 @@ name: schedule-action
 
 on:
   schedule:
-    - cron: "5 * * * *"
+    - cron: "24 * * * *"
 
 jobs:
   check:
