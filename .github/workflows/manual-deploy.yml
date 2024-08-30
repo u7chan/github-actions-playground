@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print log
-        run: echo "branch=${GITHUB_REF#refs/heads/}, comment=${{ github.event.inputs.comment }}"
+        run: echo "branch=${GITHUB_REF#refs/heads/}, githash=$(git rev-parse --short HEAD), comment=${{ github.event.inputs.comment }}"
