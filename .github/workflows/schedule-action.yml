@@ -1,0 +1,15 @@
+name: schedule-action
+
+on:
+  schedule:
+    - cron: "5 * * * *"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: print log
+        run: echo "branch=${GITHUB_REF#refs/heads/}, githash=$(git rev-parse --short HEAD)"
