@@ -8,12 +8,15 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: show current datetime
+
+      - name: Show current datetime
         env:
           TZ: 'Asia/Tokyo'
         run: echo "$(date +'%Y-%m-%d %H:%M:%S')"
-      - name: print log
+
+      - name: Print log
         run: echo "branch=${GITHUB_REF#refs/heads/}, githash=$(git rev-parse --short HEAD)"
